@@ -14,9 +14,9 @@ describe Account do
         expect(subject.account_status).to eq 'active' 
     end
     
-    it 'is expected that card is within validity period' do
-        exp_date = '12/14'
-        expect(subject.card_expired).to eq true
+    it 'is expected to have an expiry date on initialize' do
+        expected_date = Date.today.next_year(5).strftime("%m/%y")
+        expect(subject.exp_date).to eq expected_date
     end
 
 end 
